@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 10), () {
-      // Navigate to the next screen after 5 seconds
+      // Navigate to the next screen after 10 seconds
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => OnboringScreen()),
@@ -21,29 +21,17 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-  Widget build
-      (BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             // First animation: TextLiquidFill
-            // TextLiquidFill(
-            //   text: 'Weather',
-            //   waveColor: Colors.blueAccent,
-            //   boxBackgroundColor: Colors.black,
-            //   textStyle: TextStyle(
-            //     fontSize: 80.0,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            //   boxHeight: 300.0,
-            // ),
             SizedBox(height: 20),
-            // Second animation: ColorizeAnimatedTextKit
+            // First animation: ColorizeAnimatedTextKit
             ColorizeAnimatedTextKit(
-              text: ['Weather app'],
+              text: ['Weather'],
               textStyle: TextStyle(
                 fontSize: 60.0,
                 fontWeight: FontWeight.bold,
@@ -55,13 +43,19 @@ class _SplashScreenState extends State<SplashScreen> {
                 Colors.yellow,
               ],
               textAlign: TextAlign.start,
-
             ),
-
+            SizedBox(height: 20),
+            // Second animation: TyperAnimatedTextKit
+            TyperAnimatedTextKit(
+              text: ['App'],
+              textStyle: TextStyle(
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.start,
+            ),
           ],
-
         ),
-
       ),
     );
   }
