@@ -1,85 +1,85 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/cubits/get_weather/get_weather_cubit.dart';
 import 'package:weather_app/data_layer/model/weather_model.dart';
 import 'package:weather_app/main.dart';
 
-class Weather_Info_Body extends StatelessWidget
-{
-final  WeatherModel weather;
-  const Weather_Info_Body({super.key,   required this.weather});
+class WeatherInfoBody extends StatelessWidget {
+  final WeatherModel weather;
+
+  const WeatherInfoBody({Key? key, required this.weather}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    WeatherModel? weatherModel=
-        BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            getThemeColor(weatherModel!.weatherCondition),
-            getThemeColor(weatherModel.weatherCondition)[300]!,
-            getThemeColor(weatherModel.weatherCondition)[50]!,
-          ],begin: Alignment.topCenter,end: Alignment.bottomCenter,
-
+            getThemeColor(weather.weatherCondition)!,
+            getThemeColor(weather.weatherCondition)![300]!,
+            getThemeColor(weather.weatherCondition)![50]!,
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
       ),
-      child:
-        Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(
-                flex: 3,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              weather.cityName,
+              style: const TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
-              Text( weatherModel!.cityName,
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Updated at: ${weather.date}',
+              style: const TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/weather2.png', // Replace 'cloud_icon.png' with the path to your image asset
+                  width: 50, // Adjust the width as needed
+                  height: 50, // Adjust the height as needed
                 ),
-              ),
-              Text(
-                ('Updated at : ${weatherModel.date}'),
-                style: TextStyle(
-                  fontSize: 22,
-                ),
-              ),
-              Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.network(weatherModel.image!),
-                  Text(
-                    weatherModel.tamp.toString() ,
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Column(
+                const SizedBox(width: 10),
+                Flexible(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('max temp :${weatherModel.maxTamp} ' ),
-                      Text('min temp :${weatherModel.minTamp}'),
+                      Text('Temperature: ${weather.tamp.toString()}'),
+                      Text('Max Temp: ${weather.maxTamp}'),
+                      Text('Min Temp: ${weather.minTamp}'),
                     ],
                   ),
-                ],
-              ),
-              Spacer( flex: 3,),
-              Text(
-               weatherModel.weatherCondition,
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
                 ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Text(
+              weather.weatherCondition,
+              style: const TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
-              Spacer(
-                flex: 5,
-              ),
-            ],
-          ),
-
+            ),
+          ],
+        ),
+      ),
     );
-
-
   }
-
 }
