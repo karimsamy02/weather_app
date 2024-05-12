@@ -50,7 +50,7 @@ class WeatherInfoBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/weather2.png', // Replace 'cloud_icon.png' with the path to your image asset
+                  'assets/images/weather2.png',
                   width: 50, // Adjust the width as needed
                   height: 50, // Adjust the height as needed
                 ),
