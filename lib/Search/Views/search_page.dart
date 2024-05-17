@@ -9,7 +9,7 @@ class Search extends StatelessWidget {
     String? cityName;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
         title: Text(
           'search a city ',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),

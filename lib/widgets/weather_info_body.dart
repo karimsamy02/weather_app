@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/data_layer/model/weather_model.dart';
+import 'package:weather_app/Search/Model/weather_model.dart';
 import 'package:weather_app/main.dart';
 
 class WeatherInfoBody extends StatelessWidget {
@@ -50,9 +50,9 @@ class WeatherInfoBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/weather2.png', // Replace 'cloud_icon.png' with the path to your image asset
-                  width: 50, // Adjust the width as needed
-                  height: 50, // Adjust the height as needed
+                  'assets/images/weather2.png',
+                  width: 50,
+                  height: 50,
                 ),
                 const SizedBox(width: 10),
                 Flexible(
@@ -60,9 +60,9 @@ class WeatherInfoBody extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Temperature: ${weather.tamp.toString()}'),
-                      Text('Max Temp: ${weather.maxTamp}'),
-                      Text('Min Temp: ${weather.minTamp}'),
+                      Text('Temperature: ${weather.tamp.floor().toString()}',style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold),),
+                      Text('Max Temp: ${weather.maxTamp.floor()}'),
+                      Text('Min Temp: ${weather.minTamp.floor()}'),
                     ],
                   ),
                 ),

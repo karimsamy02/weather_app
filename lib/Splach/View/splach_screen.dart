@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/pages/onbording_screen.dart';
+import 'package:weather_app/Onbording/View/onbording_screen.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
               textAlign: TextAlign.start,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             // Second animation: TyperAnimatedTextKit
             TyperAnimatedTextKit(
               text: ['App'],

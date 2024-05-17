@@ -25,8 +25,7 @@ class WeatherModel {
       tamp: json['forecast']['forecastday'][0]['day']['avgtemp_c'],
       maxTamp: json['forecast']['forecastday'][0]['day']['maxtemp_c'],
       minTamp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
-      weatherCondition: json['forecast']['forecastday'][0]['day']['condition']
-          ['text'],
+      weatherCondition: json['forecast']['forecastday'][0]['day']['condition']['text'],
     );
   }
 }

@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather/get_weather_cubit.dart';
-import 'package:weather_app/pages/search_page.dart';
+import 'package:weather_app/Search/Views/search_page.dart';
+
 import 'package:weather_app/widgets/noweather.dart';
 import 'package:weather_app/widgets/weather_info_body.dart';
 
@@ -18,7 +19,7 @@ class _Home_pageState extends State<Home_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
               onPressed: () {

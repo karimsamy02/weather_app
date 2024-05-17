@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/pages/home_page.dart';
+import 'package:weather_app/Home/View/home_page.dart';
 
 class OnboringScreen extends StatefulWidget {
   const OnboringScreen({Key? key}) : super(key: key);
