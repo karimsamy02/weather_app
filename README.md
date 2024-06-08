@@ -1,4 +1,4 @@
-# weather_app
+#simple weather_app
 
 this app about weather
 
